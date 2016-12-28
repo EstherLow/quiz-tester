@@ -4,6 +4,7 @@ Note the tests will only work if you name your functions accordingly based on th
 */
 
 var activePlayer = 1;
+var choice;
 
 function Question (prompt, options, correctAnswerIndex) {
   this.prompt = prompt
@@ -68,7 +69,8 @@ function playTurn (choice) {
     return false;
   }
 
-  if (choice === quiz.questions[quiz.currentQuestion].correctAnswerIndex) {
+  if (choice == quiz.questions[quiz.currentQuestion].correctAnswerIndex) {
+    console.log(quiz.questions[quiz.currentQuestion].correctAnswerIndex);
     if (activePlayer === 1) {
       quiz.player1Points += 1;
       activePlayer = 2;
@@ -76,16 +78,16 @@ function playTurn (choice) {
       quiz.player2Points += 1;
       activePlayer = 1; }
       quiz.currentQuestion ++
-      //console.log("3) Player turn " + activePlayer);
-      //console.log("5) Player 1: " + quiz.player1Points + " Player 2: " + quiz.player2Points);
+      console.log("3) Player turn " + activePlayer);
+      console.log("5) Player 1: " + quiz.player1Points + " Player 2: " + quiz.player2Points);
       updateScores ();
       updateQuestions ();
       return true
     } else {
       if (activePlayer === 1) { activePlayer = 2; } else { activePlayer = 1; }
       quiz.currentQuestion ++
-      //console.log("4) Player turn " + activePlayer);
-      //console.log("6) Player 1: " + quiz.player1Points + " Player 2: " + quiz.player2Points);
+      console.log("4) Player turn " + activePlayer);
+      console.log("6) Player 1: " + quiz.player1Points + " Player 2: " + quiz.player2Points);
       updateScores ();
       updateQuestions ();
       return false
@@ -116,6 +118,8 @@ quiz.isGameOver = false;
 
 
 function updateQuestions () {
+  $("input[name=stimulus]").prop("checked", false)
+  console.log('$("input[name=stimulus]").attr("checked", false)');
   if(quiz.currentQuestion >= quiz.questions.length) {
     //console.log("2) check if compare with questions.length runs " + quiz.currentQuestion);
     quiz.isGameOver = true;
@@ -131,20 +135,31 @@ function updateQuestions () {
 updateQuestions ()
 
 function updateScores () {
-  $('h3:nth-of-type(1)').text("Player 1 scores: " + quiz.player1Points)
-  $('h3:nth-of-type(2)').text("Player 2 scores: " + quiz.player2Points)
+  $('#scores1').text("Player 1 scores: " + quiz.player1Points)
+  $('#scores2').text("Player 2 scores: " + quiz.player2Points)
 }
 
 updateScores ()
 
+$("input[name=stimulus]").change(function (){
+  //return ( $("input[name=stimulus]:checked").val())
+  choice = $("input[name=stimulus]:checked").val();
+  console.log('Player choose' + choice);
+  playTurn(choice);
+})
+
+
+$('#restart'). click(function() {
+  restart()
+  updateQuestions()
+  updateScores()
+} )
+
 /*
 //not for the test
-function getChoice () {$(".choices").change(function (){
-  return ( $("input[name=stimulus]:checked").val())})
-  console.log( $("input[name=stimulus]:checked").val());
-  }
 
-// getChoice()
+
+
 
 //not for the test
 function playTurn () { $(".choices").click(function () {

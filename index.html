@@ -1,22 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Test</title>
-    <!--  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!--  -->
 </head>
 <body>
-    <h3></h3>
-    <h3></h3>
-    <h1></h1>
-    <div class="choices-wrapper">
-    <input type="radio" class="choices" name="stimulus" value="0"><label for="0"></label>
-    <input type="radio" class="choices" name="stimulus" value="1"><label for="1"></label>
-    <input type="radio" class="choices" name="stimulus" value="2"><label for="2"></label>
-    <input type="radio" class="choices" name="stimulus" value="3"><label for="3"></label>
+  <div class="container">
+    <div class="row" >
+      <h3 class="col-md-6" id="scores1"></h3>
+      <h3 class="col-md-6" id="scores2"></h3>
     </div>
+    <div class="row" id="quiz-question">
+      <div class="col-md-12"><h1></h1></div>
+    </div>
+    <div class="radio">
+      <input type="radio" id="choices" name="stimulus" value="0"><label for="0"></label>
+    </div>
+    <div class="radio">
+      <input type="radio" id="choices" name="stimulus" value="1"><label for="1"></label>
+    </div>
+    <div class="radio">
+      <input type="radio" id="choices" name="stimulus" value="2"><label for="2"></label>
+    </div>
+    <div class="radio">
+      <input type="radio" id="choices" name="stimulus" value="3"><label for="3"></label>
+    </div>
+    <div class="row" id="buttons">
+      <!--<button type="button" class="btn btn-info disabled" id="next">Next</button>-->
+      <button type="button" class="btn btn-info active pull-right" id="restart">Restart</button>
+    </div>
+
+
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-  <script src="./myQuiz.js"></script>
-  <script src="./quiz-tester.js"></script>
-</body>
-</html>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="./myQuiz.js"></script>
+    <!--<script src="./quiz-tester.js"></script> -->
+  </body>
+  </html>
