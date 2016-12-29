@@ -9,25 +9,31 @@
 </head>
 <body>
   <div class="container">
-    <div class="row" >
+    <div class="page-header" id="pageheader">
+      <h1>The ultimate Game of Thrones quiz</h1>
+    </div>
+
+    <div class="jumbotron">
       <h3 class="col-md-6" id="scores1"></h3>
       <h3 class="col-md-6" id="scores2"></h3>
     </div>
-    <div class="row" id="quiz-question">
-      <div class="col-md-12"><h1></h1></div>
+    <div class="row">
+      <div class="col-md-12"><h2 id="quiz-question"></h2></div>
     </div>
-    <div class="radio">
+
+    <div class="radio" id="0">
       <input type="radio" id="choices" name="stimulus" value="0"><label for="0"></label>
     </div>
-    <div class="radio">
+    <div class="radio" id="1">
       <input type="radio" id="choices" name="stimulus" value="1"><label for="1"></label>
     </div>
-    <div class="radio">
+    <div class="radio" id="2">
       <input type="radio" id="choices" name="stimulus" value="2"><label for="2"></label>
     </div>
-    <div class="radio">
+    <div class="radio" id="3">
       <input type="radio" id="choices" name="stimulus" value="3"><label for="3"></label>
     </div>
+    <div class="row" id="next-btn"></div>
     <div class="row" id="buttons">
       <!--<button type="button" class="btn btn-info disabled" id="next">Next</button>-->
       <button type="button" class="btn btn-info active pull-right" id="restart">Restart</button>
